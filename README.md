@@ -3,8 +3,10 @@
 ## Overview
 
 Jaeger exposes Zipkin collector. We can use Sleuth+Zipkin in our spring boot app with minimal configurations to achieve 2 things:
-	1. Send instrumentation to Jaeger using its Zipkin collector
-	2. Spring Trace and Span related information in the logs using either log4j2 or the default logback.
+
+> 1. Send instrumentation to Jaeger via its Zipkin collector
+	
+> 2. Print Trace and Span related information in the logs using log4j2
 
 ### The problem:
 
