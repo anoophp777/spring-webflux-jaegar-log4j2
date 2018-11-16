@@ -67,4 +67,4 @@ You will see in the logs:
 	2018-11-16 22:57:19.550 [{X-B3-ParentSpanId=ad8c6f85672b068a, X-B3-SpanId=b95326419a7e3af8, X-B3-TraceId=5beefdf7e1c666e7ad8c6f85672b068a, X-Span-Export=true, parentId=ad8c6f85672b068a, spanExportable=true, spanId=b95326419a7e3af8, traceId=5beefdf7e1c666e7ad8c6f85672b068a}] DEBUG ahallim-1ef960 --- [nio-7070-exec-4] a.h.w.RestaurantService                  : inside byPrice MVC
 	
 In Jaegar you will see the entries as below:
-
+![alt text](https://github.com/anoophp777/spring-webflux-jaegar-log4j2/blob/master/src/main/resources/images/Screen%20Shot%202018-11-16%20at%2011.36.22%20PM.png "Jaegar image of trace")
