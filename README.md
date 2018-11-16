@@ -16,7 +16,7 @@ Sleuth is the Spring prescribed solution for distributed tracing. Sleuth also ha
 
 **Using Jaeger agent in our classpath will devoid us of the advantages of Sleuth(webflux support + automatic logging of trace data).**
 
-###f The Solution:
+### The Solution:
 
 OpenZipkin is the fully open-source version of Zipkin, a project that originated at Twitter in 2010, and is based on the Google Dapper papers. Sleuth integrates very well with Zipkin. 
 
@@ -33,9 +33,11 @@ If don't have a local set up of Jaeger running in your system, you can easily se
 
 	$ docker run -d --name jaeger -e COLLECTOR_ZIPKIN_HTTP_PORT=9411 -p 5775:5775/udp -p 6831:6831/udp -p 6832:6832/udp -p 5778:5778 -p 16686:16686 -p 14268:14268 -p 9411:9411 jaegertracing/all-in-one:1.8
   
-The above will expose Jaeger Zipkin collector at http://localhost:9411.
+The above will expose Jaeger's Zipkin collector at http://localhost:9411.
 
-Sleuth-Zipkin by default sends all trace data to http://localhost:9411. If you Jaeger server is at a different url, you can force Zipkin to send the data to the Jaeger server(at Zipkin collector) by overrding 
+Sleuth-Zipkin by default sends all trace data to http://localhost:9411. 
+
+If your Jaeger server is at a different url, you can force Zipkin to send the data to the Jaeger server(at Zipkin collector) by overrding 
 
 	spring.zipkin.base-url=http://<your-Jaeger-server>:<port>
   
