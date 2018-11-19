@@ -8,13 +8,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.sleuth.annotation.ContinueSpan;
 import org.springframework.cloud.sleuth.annotation.NewSpan;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
 
+import io.opentracing.Tracer;
 import reactor.core.publisher.Flux;
 
 /**
@@ -27,6 +27,9 @@ public class RestaurantController {
 
 	@Autowired
 	private RestaurantService restaurantService;
+	
+    @Autowired private Tracer tracer;
+
 	
 	WebClient webClient = WebClient.create("http://localhost:7070");
 
@@ -45,6 +48,8 @@ public class RestaurantController {
 	@ContinueSpan
 	public Flux<Restaurant> byPriceReactive(@RequestParam Double maxPrice) {
 		
+		log.debug("tracer: "+tracer);
+		log.info("active span: "+tracer.activeSpan());
 		// just a log statement to show the current context
 		log.debug("starting statement");
 
@@ -59,6 +64,9 @@ public class RestaurantController {
 	@GetMapping("/byPriceMVC")
 	@ContinueSpan
 	public List<Restaurant> byPriceMVC(@RequestParam Double maxPrice) {
+		
+		log.debug("tracer: "+tracer);
+		log.info("active span: "+tracer.activeSpan());
 		
 		// just a log statement to show the current context
 		log.debug("starting statement");
