@@ -1,4 +1,4 @@
-# Integrating Jaeger with Spring Boot using Zipkin
+# Integrating Jaeger with Spring Boot using Zipkin and use OpenTracing APIs
 
 ## Overview
 
